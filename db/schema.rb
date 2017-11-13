@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20171113203611) do
   end
 
   create_table "swaps", force: :cascade do |t|
-    t.integer "giver"
-    t.integer "receiver"
+    t.integer "giver_id"
+    t.integer "receiver_id"
     t.integer "gift_id"
     t.integer "event_id"
     t.datetime "created_at", null: false
