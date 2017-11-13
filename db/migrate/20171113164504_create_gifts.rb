@@ -3,7 +3,7 @@ class CreateGifts < ActiveRecord::Migration[5.1]
     create_table :gifts do |t|
 
       t.string :name
-      t.integer :price
+      t.float :price
       t.timestamps
     end
   end
