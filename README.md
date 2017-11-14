@@ -1,5 +1,9 @@
 # README
 
+BRIAN -- Events, Gifts
+ELISA -- Swaps 
+WINTER -- Users
+
 * A user should be able to create an account.
 * A user should be able to login to an account.
 * A user should be able to see a dashboard of events, gifts, other personal info.
