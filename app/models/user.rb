@@ -11,5 +11,9 @@ class User < ApplicationRecord
   validates_email_format_of :email, :message => 'is not a valid email.'
   validates :password_digest, length: {minimum: 8}
 
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 
+  
 end
