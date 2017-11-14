@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :destroy]
+  #before_action :set_user, only: [:show, :edit, :destroy]
 
   def new
     @user = User.new
@@ -15,11 +15,12 @@ class UsersController < ApplicationController
   end
 
   def show
-#    @user = User.find(params[:id])
+    @user = User.find(user_params)
+
   end
 
   def edit
-  #  @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def update
@@ -31,7 +32,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-#    @user = User.find(params[:id])
+    @user = User.find(params[:id])
     @user.destroy
   end
 
