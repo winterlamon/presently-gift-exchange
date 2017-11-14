@@ -8,6 +8,8 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email
+  validates_email_format_of :email, :message => 'is not a valid email.'
   validates :password_digest, length: {minimum: 8}
+
+
 end
