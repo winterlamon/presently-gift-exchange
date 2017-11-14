@@ -1,0 +1,20 @@
+<h1>Create a New Event!</h1>
+
+<%= form_for @event do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %><br><br>
+
+<%= f.label :date %>
+<%= f.datetime_select :date, :ampm => true, :minute_step => 15 %><br><br>
+
+<%= f.label :spending_limit %>
+<%= f.text_field :spending_limit %><br><br>
+
+<%= f.label :location %>
+<%= f.text_field :location %><br><br>
+
+<%= f.label :occasion %>
+<%= f.text_field :occasion %><br><br>
+
+<%= f.submit "Create Your Event" %><br><br>
+<% end %>
