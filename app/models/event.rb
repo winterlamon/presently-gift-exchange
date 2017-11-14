@@ -13,9 +13,13 @@ class Event < ApplicationRecord
   # end
 
   def generate_swap
-    User.all.zip(User.all).each do |receive, give|
-      Swap.create(giver_id: give.id, receiver_id: receive.id, gift_id: nil, event_id: self.id)
+    pairs = (self.users.map{|x| x.id}).zip(self.users.shuffle.map{|x| x.id})
+    pairs.each do |pair|
+    if pair[0] != pair[1]
+     Swap.create(giver_id: pair[0], receiver_id: pair[1], gift_id: nil, event_id: self.id)
+   else
     end
+
   end
 
 
