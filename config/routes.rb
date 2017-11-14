@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :swaps
   resources :events
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/dashboard', to: 'users#show', as: 'user_dashboard'
+  get '/', to: 'static#home', as: 'home_path'
+
+  root to: 'users#dashboard'
 end
