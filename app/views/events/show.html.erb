@@ -1,0 +1,12 @@
+<h1><%= @event.title %></h1>
+
+<h2>You're Invited! </h2>
+
+<ul>
+  <li><b>What?</b> <%= @event.occasion %></liu>
+  <li><b>When?</b> <%= @event.date.strftime("%B %d, %Y") %> at <%= @event.date.strftime("%I:%M %p") %></liu>
+  <li><b>Where?</b> <%= @event.location %></liu>
+  <li><b>How Much?</b> $<%= @event.spending_limit %> spending limit</li>
+</ul>
+
+<h5><%= link_to("Delete Event", event_path, method: :delete, class: "delete_button")%></h5>
