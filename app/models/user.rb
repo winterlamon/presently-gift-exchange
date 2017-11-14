@@ -5,4 +5,9 @@ class User < ApplicationRecord
   has_many :swaps_received, class_name: 'Swap', foreign_key: 'giver_id'
   has_many :swaps_given, class_name: 'Swap', foreign_key: 'receiver_id'
   has_many :gifts, through: :swaps
+
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  validates :email
+  validates :password_digest, length: {minimum: 8}
 end
