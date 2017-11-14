@@ -4,12 +4,12 @@ class Swap < ApplicationRecord
   belongs_to :receiver, class_name: 'User'
   belongs_to :gift
 
-  def givers
-    self.event.users.shuffle!
+  def giver
+    self.giver_id
   end
 
-  def receivers
-    self.event.users.shuffle!
+  def receiver
+    self.receiver_id
   end
 
   def self.empty_swaps(count)
