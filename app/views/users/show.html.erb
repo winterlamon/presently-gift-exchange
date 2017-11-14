@@ -1,0 +1,24 @@
+<h2><%= @user.full_name%><h2>
+
+<h3>Gift Preferences</h3>
+
+<h3>Events</h3>
+<p><%= @user.events.all.each do |event| %></p>
+  <p>Event: <%= event.name %></p>
+  <p>Date: <%= event.date %></p>
+  <p>Location: <%= event.location %></p>
+  <p>Occasion: <%= event.occasion %></p>
+  <p>Spending Limit: <%= event.spending_limit %></p>
+  <p>Give a gift to: <%= user.swap %></p>
+<%%>
+<%%>
+<%%>
+<%%>
+<%%>
+
+<h4>Gifts Given</h4>
+
+
+
+
+<h4>Gifts Received</h4>
