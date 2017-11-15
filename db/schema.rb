@@ -50,10 +50,6 @@ ActiveRecord::Schema.define(version: 20171113203611) do
     t.string "last_name"
     t.string "email"
     t.string "password_digest"
-    t.text "bio"
-    t.string "cat_1"
-    t.string "cat_2"
-    t.string "cat_3"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

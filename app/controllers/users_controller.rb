@@ -8,8 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:id] = @user.id
       redirect_to user_dashboard_path
     else
+      flash[:notice] = "That is not a valid user."  # can i iterate through error messages and display each one as a flash notice?
       render :new
     end
   end
@@ -37,13 +39,13 @@ class UsersController < ApplicationController
   end
 
 private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # 
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
   def user_params
-    params.required(:user).permit(:first_name, :last_name, :email, :password_digest)
+    params.required(:user).permit(:first_name, :last_name, :email, :password, :cat_1, :cat_2, :cat_3)
   end
 
 end

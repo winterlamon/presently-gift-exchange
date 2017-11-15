@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  
   has_many :user_events
   has_many :events, through: :user_events
   has_many :swaps_received, class_name: 'Swap', foreign_key: 'giver_id'
@@ -15,5 +16,9 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
-  
+  # def category_preferences
+  #   @category_preferences = ["#{self.cat_1}", "#{self.cat_2}", "#{self.cat_3}"]
+  # end
+
+
 end
