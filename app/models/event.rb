@@ -31,28 +31,37 @@ class Event < ApplicationRecord
   #
   # end
 
-  def generate_pairs
-    givers = self.users.map{|x| x.id}
-    receivers = self.users.map{|x| x.id}
-    answer = {}
-    until answer.keys.count == givers.length && !answer.values.include?(nil)
-      givers.each do |giver|
-          receiver = receivers.sample
-        unless receiver == giver
-        answer[giver] = receiver
-        receivers.delete(receiver)
-      end
-    end
-  end
-  answer
+#   def generate_pairs
+#     givers = self.users
+#     receivers = self.users
+#     answer = {}
+#     until answer.keys.count == givers.length && !answer.values.include?(nil)
+#       givers.each do |giver|
+#           receiver = receivers.sample
+#         unless receiver == giver
+#         answer[giver] = receiver
+#         receivers.delete(receiver)
+#       end
+#     end
+#   end
+#   answer
+# end
+
+def generate_pairs
+  peeps = self.users.shuffle
+  holder = {}
+  peeps.each_with_index {|person, index|
+    holder[person] = peeps[index+1]}
+    holder[holder.keys.last] = peeps[0]
+    holder
 end
 
 def generate_swap
   pairs = generate_pairs
   pairs.each do |giver, receiver|
-    Swap.create(giver_id: giver, receiver_id: receiver, gift_id: nil, event_id: self.id)
+    Swap.new(giver: giver, receiver: receiver, gift_id: nil, event_id: self)
   end
-  "Swaps created!"
+  "Swaps created! Check you dashboard to see who you'll be giving a gift to!"
 end
 
 end

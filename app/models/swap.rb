@@ -2,14 +2,14 @@ class Swap < ApplicationRecord
   belongs_to :event
   belongs_to :giver, class_name: 'User'
   belongs_to :receiver, class_name: 'User'
-  belongs_to :gift
-  validate :validate_uniqueness
-
-  def validate_uniqueness
-    if :receiver_id != :giver_id
-      true
-    end
-  end
+  has_one :gift
+  # validate :validate_uniqueness
+  #
+  # def validate_uniqueness
+  #   if :receiver_id != :giver_id
+  #     true
+  #   end
+  # end
 
   def giver
     self.giver_id
