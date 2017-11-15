@@ -9,7 +9,7 @@
 
 <h2>Events</h2>
 
-  <p><%= link_to "Create New Event", url: new_event_path %></p>
+  <p><%= link_to "Create New Event", new_event_path %></p>
 
     <p><%= @user.events.each do |event| %></p>
         <strong><%= event.title %></strong><br>
