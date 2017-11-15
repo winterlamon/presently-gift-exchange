@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   get '/', to: 'static#home', as: 'home_path'
 
   root to: 'static#home'
+  resources :categories
+
 end
