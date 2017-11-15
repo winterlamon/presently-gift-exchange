@@ -23,12 +23,13 @@
     <% end %>
 </ul>
 
-<h4>Add Users to This Event</h4>
+
 <%= form_for :user_events, url: user_events_path do |f| %>
 	<%= f.label :user, for: :user_id %>
 	<%= f.collection_select :user_id, User.all, :id, :first_name %>
 	<%= f.hidden_field :event_id, value: @event.id %>
   <%= f.hidden_field :path_name, value: "/events/#{@event.id}" %>
+  <%= f.hidden_field :user_id, value: "#{@user.id}" %
 	<%= f.submit "Add user" %>
 <% end %>
 
