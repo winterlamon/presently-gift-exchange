@@ -17,12 +17,11 @@
       <% end %>
 
       <div class="nav">
-
-        <% if current_user %>
+        <% if !!session[:user_id] %>
           <ul>
-            <li>Hello, <%= current_user.first_name %>! You are signed in.</li>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Logout", logout_path, method: "delete" %></li>
+            <li>Hello, <%= User.find(session[:user_id]).first_name %>! You are signed in.</li>
+            <li><%= link_to "Profile", user_path(User.find(session[:user_id])) %></li>
+            <li><%= link_to "Logout", logout_path, method: :delete %></li>
           </ul>
         <% else %>
           <ul>

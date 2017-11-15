@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     # byebug
     @user = User.new(user_params)
     if @user.save
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
       flash[:notice] = "That is not a valid user."  # can i iterate through error messages and display each one as a flash notice?
