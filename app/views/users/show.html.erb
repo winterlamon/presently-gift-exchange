@@ -1,0 +1,26 @@
+<h1><%= @user.full_name %><h1>
+
+<h2>Gift Preferences</h2>
+    <ul>
+        <li><%= @user.cat_1 %></li>
+        <li><%= @user.cat_2 %></li>
+        <li><%= @user.cat_3 %></li>
+    </ul>
+
+<h2>Events</h2>
+    <p><%= @user.events.each do |event| %></p>
+        <strong><%= event.title %></strong><br>
+        Date: <%= event.date %><br>
+        Location: <%= event.location %><br>
+        Occasion: <%= event.occasion %><br>
+        Spending Limit: $<%= event.spending_limit %></p>
+        Give a gift to: [add swap-receiver association here<%= %>]
+    <% end %>
+
+
+<h2>Gifts Given</h2>
+
+
+
+
+<h2>Gifts Received</h2>

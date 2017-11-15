@@ -4,6 +4,15 @@ class Event < ApplicationRecord
   has_many :swaps
   has_many :gifts, through: :swaps
 
+
+  def receivers
+    self.users
+  end
+
+  def givers
+    self.users
+  end
+
   # def receivers
   #   @receiver = self.user.shuffle!
   # end
@@ -54,27 +63,5 @@ def generate_swap
   end
   "Swaps created! Check you dashboard to see who you'll be giving a gift to!"
 end
-
-
-
-
-  # def generate_swap
-  #   while receivers.length > 0
-  #     Swap.create(giver_id: nil, receiver_id: nil, gift_id: nil, event_id: self.id)
-  #     if receivers.last != givers.first
-  #       receivers.pop.giver_id = givers.shift.id
-  #     elsif receivers.last != givers.last
-  #       receivers.pop.giver_id = givers.pop.id
-  #     end
-  #   end
-  # end
-
-  # def generate_swap
-  #   givers.each do |give|
-  #     receivers.each do |rece|
-  #       Swap.create(giver_id: give.id, receiver_id: rece.id, gift_id: nil, event_id: self.id)
-  #     end
-  #   end
-  # end
 
 end
