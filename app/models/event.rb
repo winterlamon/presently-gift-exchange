@@ -19,8 +19,6 @@ class Event < ApplicationRecord
         receivers.pop.giver_id = givers.shift.id
       elsif receivers.last != givers.last
         receivers.pop.giver_id = givers.pop.id
-      end
+      endx
     end
   end
-
-end
