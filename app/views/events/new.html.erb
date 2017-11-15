@@ -5,7 +5,7 @@
 <%= f.text_field :title %><br><br>
 
 <%= f.label :date %>
-<%= f.datetime_select :date, :ampm => true, :minute_step => 15 %><br><br>
+<%= f.datetime_select :date, :start_year=>2017,:end_year=>2019, :ampm => true, :minute_step => 15 %><br><br>
 
 <%= f.label :spending_limit %>
 <%= f.text_field :spending_limit %><br><br>

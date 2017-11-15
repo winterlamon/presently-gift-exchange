@@ -1,0 +1,25 @@
+<h1>Categories</h1>
+
+<% unique_categories = [] %>
+
+<% @listings_array.each do |cat| %>
+  <% unique_categories << cat["taxonomy_path"][0] %>
+  <% end %>
+
+<ul>
+  <% unique_categories.uniq.each do |cat| %>
+    <li><%= cat %></li>
+  <% end %>
+</ul>
+
+<% unique_sub = [] %>
+
+<% @listings_array.each do |cat| %>
+  <% unique_sub<< cat["taxonomy_path"][1] %>
+  <% end %>
+
+<ul>
+  <% unique_sub.uniq.each do |cat| %>
+    <li><%= cat %></li>
+  <% end %>
+</ul>

@@ -9,11 +9,8 @@ class UserEventsController < ApplicationController
       redirect_to params[:user_events][:path_name]
     else
       render :new
+    end
   end
-end
-
-
-
 
 
   private
