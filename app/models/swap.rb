@@ -2,7 +2,14 @@ class Swap < ApplicationRecord
   belongs_to :event
   belongs_to :giver, class_name: 'User'
   belongs_to :receiver, class_name: 'User'
-  belongs_to :gift
+  has_one :gift
+  # validate :validate_uniqueness
+  #
+  # def validate_uniqueness
+  #   if :receiver_id != :giver_id
+  #     true
+  #   end
+  # end
 
   def giver
     self.giver_id
@@ -12,35 +19,15 @@ class Swap < ApplicationRecord
     self.receiver_id
   end
 
-  def self.empty_swaps(count)
-    swap_array = []
-    count.times do
-      swap_array << Swap.new
-    end
-    swap_array
-  end
+  # def self.empty_swaps(count)
+  #   swap_array = []
+  #   count.times do
+  #     swap_array << Swap.new
+  #   end
+  #   swap_array
+  # end
 
 
 
-  def self.generate_swap
-    while receivers.length > 0
-      if receivers.last != givers.first
-        receivers.pop.giver_id = givers.shift.id
-      elsif receivers.last != givers.last
-        receivers.pop.giver_id = givers.pop.id
-      end
-    end
-  end
+
 end
-
-givers = [{id: 1, name: "winter", receiver_id: nil},
-          {id: 2, name: "brian", receiver_id: nil},
-          {id: 3, name: "elisa", receiver_id: nil},
-          {id: 4, name: "tim", receiver_id: nil},
-          {id: 5, name: "steven", receiver_id: nil}]
-
-receivers = [{id: 1, name: "winter", receiver_id: nil},
-          {id: 2, name: "brian", receiver_id: nil},
-          {id: 3, name: "elisa", receiver_id: nil},
-          {id: 4, name: "tim", receiver_id: nil},
-          {id: 5, name: "steven", receiver_id: nil}]

@@ -6,6 +6,8 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+    @attendees = @event.users
+    @swaps = @event.generate_pairs
   end
 
   def new
